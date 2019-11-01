@@ -3,6 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import './lib/js/rem'
+import Vuex from 'vuex'
+import Vant from 'vant'
+import 'vant/lib/index.css'
+import './lib/css/must.css'
+Vue.use(Vuex)
+Vue.use(Vant)
 
 Vue.config.productionTip = false
 
