@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div class="home" :class="`${domLeft == true ? 'homeShow' : 'homeHide'}`">
     <LeftMenu></LeftMenu>
-    <HomePage></HomePage>
+    <Home-page @goLift="conceal"></Home-page>
   </div>
 </template>
 
@@ -12,7 +12,12 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-
+      domLeft: false
+    }
+  },
+  methods: {
+    conceal(isShow) {
+      this.domLeft = isShow;
     }
   },
   components: {
@@ -31,8 +36,16 @@ export default {
     width: 100%;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -50%;
     bottom: 0;
     right: 0;
+  }
+  .homeHide  {
+      left:-50%;
+      transition: left 1s;
+  }
+  .homeShow {
+    left: 0;
+    transition: left 1s;
   }
 </style>
